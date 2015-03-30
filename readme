@@ -42,3 +42,7 @@ cd to /src/prodatar
 write some sample data: qsub p-hro-w.sh
 read data: qsub p-hro-r.sh
 
+
+Cite paper
+Jialin Liu; Yin Lu; Yong Chen, "In-advance data analytics for reducing time to discovery," Big Data (Big Data), 2014 IEEE International Conference on , vol., no., pp.329,334, 27-30 Oct. 2014
+doi: 10.1109/BigData.2014.7004249
