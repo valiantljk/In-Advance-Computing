@@ -1,0 +1,16 @@
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/jialliu/libmemcached/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/jialliu/pnetcdf/lib
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:/home/jialliu/libmemcached/include
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:/home/jialliu/pnetcdf/include
+memcached  -d -m 1024 -u root -l localhost  -p 11211
+
+./memcached  -d -m 1024 -u root -l <ipaddress of the node>  -p 11211
+
+mpicc -g -o prodata-read proDataR.c -lmemcached -pthread -lpnetcdf -I/home/jialliu/pnetcdf/include/ -I/home/jialliu/libmemcached/include/ -L/home/jialliu/libmemcached/lib -L/home/jialliu/pnetcdf/lib
+
+mpicc -g -o prodata-write proDataW.c -lpnetcdf -I/home/jialliu/pnetcdf/include/ -L/home/jialliu/pnetcdf/lib/
+
+qlogin -q normal -pe fill 12 -P hrothgar
+
+
+

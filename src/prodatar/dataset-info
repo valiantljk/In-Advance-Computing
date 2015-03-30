@@ -1,0 +1,37 @@
+-syn-24.nc
+2	 
+-	level = 1024 ;
+3	 
+-	lon = 128 ;
+4	 
+-	lat = 128 ;
+5	 
+-	time = UNLIMITED ; // (12 currently)
+6	 
+-size:769M
+7	 
+-syn-1200000.nc
+8	 
+-	level=100
+9	 
+-	lon=10
+10	 
+-	lat=10
+11	 
+-	time=1200000
+12	 
+-size:45G
+13	 
+-
+14	 
+-syn-480.nc
+15	 
+-	level = 100 ;
+16	 
+-	lon = 10 ;
+17	 
+-	lat = 100 ;
+18	 
+-	time = UNLIMITED ; // (480000 currently)
+19	 
+-size:179G

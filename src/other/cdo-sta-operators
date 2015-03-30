@@ -1,0 +1,183 @@
+1  consecsum	 Consecutive Sum
+  consects	 Consecutive Timesteps
+  ensmin	 Ensemble minimum
+  ensmax	 Ensemble maximum
+  enssum	 Ensemble sum
+  ensmean	 Ensemble mean
+  ensavg	 Ensemble average
+  ensstd	 Ensemble standard deviation
+  ensstd1	 Ensemble standard deviation
+  ensvar	 Ensemble variance
+  ensvar1	 Ensemble variance
+  enspctl	 Ensemble percentiles
+  ensrkhistspace	 Ranked Histogram averaged over time
+  ensrkhisttime	 Ranked Histogram averaged over space
+  ensroc	 Ensemble Receiver Operating characteristics
+  enscrps	 Ensemble CRPS and decomposition
+  ensbrs	 Ensemble Brier score
+  fldmin	 Field minimum
+  fldmax	 Field maximum
+  fldsum	 Field sum
+  fldmean	 Field mean
+  fldavg	 Field average
+  fldstd	 Field standard deviation
+  fldstd1	 Field standard deviation
+  fldvar	 Field variance
+  fldvar1	 Field variance
+  fldpctl	 Field percentiles
+  zonmin	 Zonal minimum
+  zonmax	 Zonal maximum
+  zonsum	 Zonal sum
+  zonmean	 Zonal mean
+  zonavg	 Zonal average
+  zonvar	 Zonal variance
+  zonstd	 Zonal standard deviation
+  zonpctl	 Zonal percentiles
+  mermin	 Meridional minimum
+  mermax	 Meridional maximum
+  mersum	 Meridional sum
+  mermean	 Meridional mean
+  meravg	 Meridional average
+  mervar	 Meridional variance
+  merstd	 Meridional standard deviation
+  merpctl	 Meridional percentiles
+  gridboxmin	 Gridbox minimum
+  gridboxmax	 Gridbox maximum
+  gridboxsum	 Gridbox sum
+  gridboxmean	 Gridbox mean
+  gridboxavg	 Gridbox average
+  gridboxvar	 Gridbox variance
+  gridboxstd	 Gridbox standard deviation
+  vertmin	 Vertical minimum
+  vertmax	 Vertical maximum
+  vertsum	 Vertical sum
+  vertmean	 Vertical mean
+  vertavg	 Vertical average
+  vertvar	 Vertical variance
+  vertstd	 Vertical standard deviation
+  timselmin	 Time range minimum
+  timselmax	 Time range maximum
+  timselsum	 Time range sum
+  timselmean	 Time range mean
+  timselavg	 Time range average
+  timselstd	 Time range standard deviation
+  timselstd1	 Time range standard deviation
+  timselvar	 Time range variance
+  timselvar1	 Time range variance
+  timselpctl	 Time range percentiles
+  runmin	 Running minimum
+  runmax	 Running maximum
+  runsum	 Running sum
+  runmean	 Running mean
+  runavg	 Running average
+  runstd	 Running standard deviation
+  runstd1	 Running standard deviation
+  runvar	 Running variance
+  runvar1	 Running variance
+  runpctl	 Running percentiles
+  timmin	 Time minimum
+  timmax	 Time maximum
+  timsum	 Time sum
+  timmean	 Time mean
+  timavg	 Time average
+  timstd	 Time standard deviation
+  timstd1	 Time standard deviation
+  timvar	 Time variance
+  timvar1	 Time variance
+  timpctl	 Time percentiles
+  hourmin	 Hourly minimum
+  hourmax	 Hourly maximum
+  hoursum	 Hourly sum
+  hourmean	 Hourly mean
+  houravg	 Hourly average
+  hourstd	 Hourly standard deviation
+  hourstd1	 Hourly standard deviation
+  hourvar	 Hourly variance
+  hourvar1	 Hourly variance
+  hourpctl	 Hourly percentiles
+  daymin	 Daily minimum
+  daymax	 Daily maximum
+  daysum	 Daily sum
+  daymean	 Daily mean
+  dayavg	 Daily average
+  daystd	 Daily standard deviation
+  daystd1	 Daily standard deviation
+  dayvar	 Daily variance
+  dayvar1	 Daily variance
+  daypctl	 Daily percentiles
+  monmin	 Monthly minimum
+  monmax	 Monthly maximum
+  monsum	 Monthly sum
+  monmean	 Monthly mean
+  monavg	 Monthly average
+  monstd	 Monthly standard deviation
+  monstd1	 Monthly standard deviation
+  monvar	 Monthly variance
+  monvar1	 Monthly variance
+  monpctl	 Monthly percentiles
+  yearmonmean	 Yearly mean from monthly data
+  yearmin	 Yearly minimum
+  yearmax	 Yearly maximum
+  yearsum	 Yearly sum
+  yearmean	 Yearly mean
+  yearavg	 Yearly average
+  yearstd	 Yearly standard deviation
+  yearstd1	 Yearly standard deviation
+  yearvar	 Yearly variance
+  yearvar1	 Yearly variance
+  yearpctl	 Yearly percentiles
+  seasmin	 Seasonal minimum
+  seasmax	 Seasonal maximum
+  seassum	 Seasonal sum
+  seasmean	 Seasonal mean
+  seasavg	 Seasonal average
+  seasvar	 Seasonal variance
+  seasstd	 Seasonal standard deviation
+  seaspctl	 Seasonal percentiles
+  yhourmin	 Multi-year hourly minimum
+  yhourmax	 Multi-year hourly maximum
+  yhoursum	 Multi-year hourly sum
+  yhourmean	 Multi-year hourly mean
+  yhouravg	 Multi-year hourly average
+  yhourstd	 Multi-year hourly standard deviation
+  yhourstd1	 Multi-year hourly standard deviation
+  yhourvar	 Multi-year hourly variance
+  yhourvar1	 Multi-year hourly variance
+  ydaymin	 Multi-year daily minimum
+  ydaymax	 Multi-year daily maximum
+  ydaysum	 Multi-year daily sum
+  ydaymean	 Multi-year daily mean
+  ydayavg	 Multi-year daily average
+  ydaystd	 Multi-year daily standard deviation
+  ydaystd1	 Multi-year daily standard deviation
+  ydayvar	 Multi-year daily variance
+  ydayvar1	 Multi-year daily variance
+  ydaypctl	 Multi-year daily percentiles
+  ymonmin	 Multi-year monthly minimum
+  ymonmax	 Multi-year monthly maximum
+  ymonsum	 Multi-year monthly sum
+  ymonmean	 Multi-year monthly mean
+  ymonavg	 Multi-year monthly average
+  ymonstd	 Multi-year monthly standard deviation
+  ymonstd1	 Multi-year monthly standard deviation
+  ymonvar	 Multi-year monthly variance
+  ymonvar1	 Multi-year monthly variance
+  ymonpctl	 Multi-year monthly percentiles
+  yseasmin	 Multi-year seasonal minimum
+  yseasmax	 Multi-year seasonal maximum
+  yseassum	 Multi-year seasonal sum
+  yseasmean	 Multi-year seasonal mean
+  yseasavg	 Multi-year seasonal average
+  yseasvar	 Multi-year seasonal variance
+  yseasstd	 Multi-year seasonal standard deviation
+  yseaspctl	 Multi-year seasonal percentiles
+  ydrunmin	 Multi-year daily running minimum
+  ydrunmax	 Multi-year daily running maximum
+  ydrunsum	 Multi-year daily running sum
+  ydrunmean	 Multi-year daily running mean
+  ydrunavg	 Multi-year daily running average
+  ydrunstd	 Multi-year daily running standard deviation
+  ydrunstd1	 Multi-year daily running standard deviation
+  ydrunvar	 Multi-year daily running variance
+  ydrunvar1	 Multi-year daily running variance
+183  ydrunpctl	 Multi-year daily running percentiles

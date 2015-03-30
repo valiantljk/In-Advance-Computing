@@ -1,0 +1,5 @@
+ gcc -o prodatar-mem prodatar-mem.c -lpthread -I/home/jialliu/libmemcached/include -L/home/jialliu/libmemcached/lib -lmemcached
+
+mpirun -np 1 ./prodata-read -l /home/jialliu/prodatar/prodata-system/data/syn1.nc -a 0 -b 0 -c 0 -d 0 -e 10 -f 20  -g 10 -h 10
+
+mpicc -g -o prodata-read proDataR.c -lmemcached -pthread -lpnetcdf -I/home/jialliu/pnetcdf/include/ -I/home/jialliu/libmemcached/include/ -L/home/jialliu/libmemcached/lib -L/home/jialliu/pnetcdf/lib

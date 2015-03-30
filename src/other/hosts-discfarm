@@ -1,0 +1,14 @@
+HOST           MEMBERSHIP ip
+discfarm:      Frontend   
+compute-24-6:  Compute    10.6.9.253        
+compute-24-7:  Compute    10.6.9.252    
+compute-24-8:  Compute    10.6.9.251      
+compute-25-7:  Compute    10.6.9.250      
+compute-25-8:  Compute    10.6.9.249      
+compute-25-9:  Compute    10.6.9.248      
+compute-25-10: Compute    10.6.9.247      
+compute-25-11: Compute    10.6.9.246        
+compute-25-14: Compute    10.6.9.243      
+compute-25-15: Compute    10.6.9.242      
+compute-25-16: Compute    10.6.9.241      
+compute-25-17: Compute    10.6.9.240      

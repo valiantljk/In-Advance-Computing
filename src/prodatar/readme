@@ -1,0 +1,44 @@
+To use the ProDataR,follow the steps as below:
+1. Prerequisites
+mpi, pnetcdf, libevent, libmemcached, memcached, pthread, all in your home dir
+
+Note: on hrothgar, mpi is already installed, use which mpicc to find the mpi install
+director, then install the pnetcdf with that directory. libmemcached is based on 
+libevent and is a client interface of memcached. pthread is usually already there.
+
+2. Export library path 
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/jialliu/libmemcached/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/jialliu/pnetcdf/lib
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:/home/jialliu/libmemcached/include
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:/home/jialliu/pnetcdf/include
+
+Note: change the path; /home/jialliu/ into your own directory
+
+3. Start a database server, or start multiple servers
+
+3.1 login into a compute node
+qlogin -q normal -pe fill 12 -P hrothgar
+
+Note: first ssh to hrothgar headnode, then use qlogin acquire a compute node
+
+3.2 run a memcached server, with 1024m memory, i.e., 1G 
+./memcached  -d -m 1024 -u root -l localhost  -p 11211
+or
+./memcached  -d -m 1024 -u root -l <ipaddress of the node>  -p 11211
+
+Note: after acquiring a compute node, that node is only for database server,
+start a new terminal and do other things.
+
+4. Compile proDataR
+
+cd to /src/prodatar
+make clean
+make
+
+5. Run proDataR
+
+cd to /src/prodatar
+write some sample data: qsub p-hro-w.sh
+read data: qsub p-hro-r.sh
+

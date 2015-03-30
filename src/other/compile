@@ -1,0 +1,123 @@
+./configure --with-memcached=/global/u1/j/jialin/prodata-system/src/memcache/jialinInstallMemcache --prefix=/global/u1/j/jialin/newlibmemcached
+
+
+/global/u1/j/jialin/autoconf-2.69/jialin-install
+
+cc -o prodatar proDataR.c -I/global/homes/j/jialin/pnetcdf/include -L/global/homes/j/jialin/pnetcdf/lib -lpnetcdf -I/global/u1/j/jialin/prodata-system/src/libmemcached/include -L/global/u1/j/jialin/prodata-system/src/libmemcached/lib
+
+/global/u1/j/jialin/newlibmemcached   (gnu compiler)
+
+cc -o prodatar proDataR.c -I/global/u1/j/jialin/prodata-system/src/libmemcached/include -L/global/u1/j/jialin/prodata-system/src/libmemcached/lib -I/global/homes/j/jialin/pnetcdf/include -L/global/homes/j/jialin/pnetcdf/lib -lpnetcdf 
+
+
+pnetcdf only can be compiled with pgi
+
+libmemcached, only work with gnu, 
+if pgi, error:'You should include mem_config.h as your first include file" (./mem_config.h: 9)'
+
+ module swap PrgEnv-pgi PrgEnv-gnu
+
+/global/u1/j/jialin/newpnetcdf
+
+
+compile
+libmemcached
+
+1. PrgEnv-pgi
+./configure --with-memcached=/global/u1/j/jialin/prodata-system/src/memcache/jialinInstallMemcache --prefix=/global/u1/j/jialin/newlibmemcached/ 
+configure error:
+"You should include mem_config.h as your first include file" (./mem_config.h: 9)
+
+./configure --with-memcached=/global/u1/j/jialin/prodata-system/src/memcache/jialinInstallMemcache --prefix=/global/u1/j/jialin/newlibmemcached/ CC=/opt/cray/xt-asyncpe/5.23/bin/cc CXX=/opt/cray/xt-asyncpe/5.23/bin/CC
+
+configure ok
+
+make error:
+line 46: catastrophic error: cannot open
+          source file "cinttypes"
+  #  include <cinttypes>
+                        ^
+
+1 catastrophic error detected in the compilation of "libmemcached/csl/context.cc".
+Compilation terminated.
+
+reason: cray compiler only support some ofgnu extension, may not have boost in c++ builder
+
+
+./configure --with-memcached=/global/u1/j/jialin/prodata-system/src/memcache/jialinInstallMemcache --prefix=/global/u1/j/jialin/newlibmemcached/ CC=/opt/cray/xt-asyncpe/5.23/bin/cc CXX=/opt/cray/xt-asyncpe/5.23/bin/CC CFLAGS=-fPIC CXXFLAGS=-fPIC
+
+2. PrgEnv-cray
+./configure --with-memcached=/global/u1/j/jialin/prodata-system/src/memcache/jialinInstallMemcache --prefix=/global/u1/j/jialin/newlibmemcached 
+
+
+make error:relocation R_X86_64_PC32 against undefined symbol `free@@GLIBC_2.2.5' can not be used when making a shared object; recompile with -fPIC
+
+apr19 1:23am
+try fpic
+./configure --with-memcached=/global/u1/j/jialin/prodata-system/src/memcache/jialinInstallMemcache --prefix=/global/u1/j/jialin/newlibmemcached/ CFLAGS=-fPIC CXXFLAGS=-fPIC LDFLAGS=-lpthread CC=/opt/cray/xt-asyncpe/5.23/bin/cc CXX=/opt/cray/xt-asyncpe/5.23/bin/CC
+
+/usr/include/c++/4.3/ext/new_allocator.h: In member function 'void __gnu_cxx::new_allocator<_Tp>::construct(_Tp*, _Args&& ...) [with _Args = long int, _Tp = char*]':
+/usr/include/c++/4.3/bits/stl_vector.h:703:   instantiated from 'void std::vector<_Tp, _Alloc>::push_back(_Args&& ...) [with _Args = long int, _Tp = char*, _Alloc = std::allocator<char*>]'
+libtest/cmdline.cc:790:   instantiated from here
+/usr/include/c++/4.3/ext/new_allocator.h:114: error: invalid conversion from 'long int' to 'char*'
+make[1]: *** [libtest/libtest_libtest_la-cmdline.lo] Error 1
+
+3:52pm apr 19
+./configure --with-memcached=/global/u1/j/jialin/prodata-system/src/memcache/jialinInstallMemcache --prefix=/global/u1/j/jialin/newlibmemcached/ CFLAGS=-fPIC LDFLAGS=-lpthread CC=/opt/cray/xt-asyncpe/5.23/bin/cc CXX=/opt/cray/xt-asyncpe/5.23/bin/CC CXXFLAGS=-fPIC CFLAGS=-fPIC
+
+configure ok
+crayc++: ERROR File = /opt/gcc/4.4.4/snos/include/g++/c++0x_warning.h, Line = 31
+  #error directive: This file requires compiler and library support for the
+          upcoming ISO C++ standard, C++0x. This support is currently
+          experimental, and must be enabled with the -std=c++0x or
+          -std=gnu++0x compiler options.
+
+4:05: trying with -std=c++0x support 
+./configure --with-memcached=/global/u1/j/jialin/prodata-system/src/memcache/jialinInstallMemcache --prefix=/global/u1/j/jialin/newlibmemcached/ CFLAGS=-fPIC LDFLAGS=-lpthread CC=/opt/cray/xt-asyncpe/5.23/bin/cc CXX=/opt/cray/xt-asyncpe/5.23/bin/CC CXXFLAGS="-fPIC -std=c++0x"
+
+
+
+./configure --with-memcached=/global/u1/j/jialin/prodata-system/src/memcache/jialinInstallMemcache --prefix=/global/u1/j/jialin/newlibmemcached CFLAGS="-hpic -hdynamic" CXXFLAGS="-hpic -hdynamic" 
+/usr/include/c++/4.3/ext/new_allocator.h: In member function 'void __gnu_cxx::new_allocator<_Tp>::construct(_Tp*, _Args&& ...) [with _Args = long int, _Tp = char*]':
+/usr/include/c++/4.3/bits/stl_vector.h:703:   instantiated from 'void std::vector<_Tp, _Alloc>::push_back(_Args&& ...) [with _Args = long int, _Tp = char*, _Alloc = std::allocator<char*>]'
+libtest/cmdline.cc:790:   instantiated from here
+/usr/include/c++/4.3/ext/new_allocator.h:114: error: invalid conversion from 'long int' to 'char*'
+
+./configure --with-memcached=/global/u1/j/jialin/prodata-system/src/memcache/jialinInstallMemcache --prefix=/global/u1/j/jialin/newlibmemcached CFLAGS="-hpic" CXXFLAGS="-hpic" CC=/opt/cray/xt-asyncpe/5.23/bin/cc CXX=/opt/cray/xt-asyncpe/5.23/bin/CC
+
+  #error directive: This file requires compiler and library support for the
+          upcoming ISO C++ standard, C++0x. This support is currently
+          experimental, and must be enabled with the -std=c++0x or
+          -std=gnu++0x compiler options.
+
+
+./configure --with-memcached=/global/u1/j/jialin/prodata-system/src/memcache/jialinInstallMemcache --prefix=/global/u1/j/jialin/newlibmemcached CFLAGS="-hpic -hdynamic" CXXFLAGS="-hpic -hdynamic" CC=/opt/cray/xt-asyncpe/5.23/bin/cc CXX=/opt/cray/xt-asyncpe/5.23/bin/CC
+
+3. PrgEnv-gnu
+./configure --with-memcached=/global/u1/j/jialin/prodata-system/src/memcache/jialinInstallMemcache --prefix=/global/u1/j/jialin/newlibmemcached/ CC=/opt/cray/xt-asyncpe/5.23/bin/cc CXX=/opt/cray/xt-asyncpe/5.23/bin/CC
+
+configure ok
+make error
+relocation R_X86_64_32 against 
+
+try with -fPIC
+
+./configure --with-memcached=/global/u1/j/jialin/prodata-system/src/memcache/jialinInstallMemcache --prefix=/global/u1/j/jialin/newlibmemcached/ CC=/opt/cray/xt-asyncpe/5.23/bin/cc CXX=/opt/cray/xt-asyncpe/5.23/bin/CC CFLAGS=-fPIC CXXFLAGS=-fPIC
+
+still make error
+relocation R_X86_64_32 against `__TMC_END__' 
+
+Apr18 12:28
+./configure --with-memcached=/global/u1/j/jialin/prodata-system/src/memcache/jialinInstallMemcache --prefix=/global/u1/j/jialin/newlibmemcached/ CFLAGS=-lpthread CXXFLAGS=-lpthread
+12:32 make
+/usr/bin/ld: /opt/gcc/4.8.1/snos/lib/gcc/x86_64-suse-linux/4.8.1/crtbeginT.o: relocation R_X86_64_32 against `__TMC_END__' can not be used when making a shared object; recompile with -fPIC
+/opt/gcc/4.8.1/snos/lib/gcc/x86_64-suse-linux/4.8.1/crtbeginT.o: could not read symbols: Bad value
+
+12:43am
+./configure --with-memcached=/global/u1/j/jialin/prodata-system/src/memcache/jialinInstallMemcache --prefix=/global/u1/j/jialin/newlibmemcached/ CFLAGS=-lpthread CXXFLAGS=-lpthread LDFLAGS="-fPIC"
+
+/crtbeginT.o: relocation R_X86_64_32 against `__TMC_END__' can not be used when making a shared object; recompile with -fPIC
+
+4. PrgEnv-intel
+
+

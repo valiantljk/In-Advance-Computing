@@ -1,0 +1,16 @@
+#on hopper
+#compile prodatar write codes
+cc -o prodataw proDataW.c -I/global/homes/j/jialin/pnetcdf/include -L/global/homes/j/jialin/pnetcdf/lib -lpnetcdf
+
+
+#on discfarm
+#compile prodatar read codes
+mpicc -g -o prodata-read proDataR.c -lmemcached -pthread -lpnetcdf
+#run prodatar read codes
+mpirun -np 1 ./prodata-read -l /home/jialliu/prodatar/prodata-system/data/syn1.nc -a 0 -b 0 -c 0 -d 0 -e 10 -f 20  -g 10 -h 10
+
+#run memcached server
+memcached -d m 1024 -u root -l 10.6.9.253 -p 11221
+
+#compile memcached client codes
+gcc -o prodatar-mem prodatar-mem.c -lmemcached -pthread

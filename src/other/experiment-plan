@@ -1,0 +1,14 @@
+evaluation 
+
+1. multiple get is using multiple thread in the thread pool on server to automatically parallelize,
+the how about using mpi, i.e., each process to query a key, etc.
+
+2. Scale to 10k or even more, indepedent i/o(each i/o figure it's own overlapping result),
+collective i/o(collective all overlapping first, then collectively do the io)
+
+3. overlapping spare or density
+I/O QR code
+Q: Quantity
+R: Resolution
+
+Q*R code vs I/O Performance
